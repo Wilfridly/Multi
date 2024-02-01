@@ -167,7 +167,7 @@ int _main (int argc, char *argv[])
   ram.p_tout        (signal_pi_tout);
 
   
-TO BE COMPLETED : connect the ram (PibusSimpleRam) & master (PibusSimpleMaster) components
+// TO BE COMPLETED : connect the ram (PibusSimpleRam) & master (PibusSimpleMaster) components
   
 //////////////////////////////////////////////
 //     simulation loop
