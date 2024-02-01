@@ -108,11 +108,11 @@ int _main (int argc, char *argv[])
   PibusSegmentTable	segtable;
 
   segtable.setMSBnumber(4);
-  
+
   segtable.addSegment("seg_ram" , SEG_RAM_BASE, 0x00000010, 0, false);
  
-TO BE COMPLETED : segment associated to the TTY
-
+// TO BE COMPLETED : segment associated to the TTY
+  segtable.addSegment("seg_tty", SEG_TTY_BASE, 0x00000010, 1, false);
 /////////////////////////////////////////////////////////
 //	INSTANCIATED  COMPONENTS
 /////////////////////////////////////////////////////////
@@ -120,8 +120,8 @@ TO BE COMPLETED : segment associated to the TTY
   Loader			loader	("string_file@0x10000000:D");
 
   PibusSegBcu			bcu	("bcu", segtable, 1 , 2, 100);
-  PibusSimpleMaster		master	("master", TO BE COMPLETED);
-  PibusSimpleRam		ram	("ram"  , TO BE COMPLETED);
+  PibusSimpleMaster		master	("master", SEG_RAM_BASE, SEG_TTY_BASE); //TO BE COMPLETED
+  PibusSimpleRam		ram	("ram"  , 0, segtable, ram_latency, loader); //TO BE COMPLETED
   PibusMultiTty  		tty 	("tty"  ,  1, segtable, 1);
 
   std::cout << std::endl;
