@@ -1,0 +1,15 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_block_device',
+	classname = 'soclib::caba::PibusBlockDevice',
+	header_files = ['../source/include/pibus_block_device.h',],
+	implementation_files = ['../source/src/pibus_block_device.cpp',],
+	uses = [
+		Uses('caba:pibus_mnemonics'),
+		Uses('caba:pibus_segment_table'),
+		],
+)

@@ -1,0 +1,16 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_multi_timer',
+	classname = 'soclib::caba::PibusMultiTimer',
+	header_files = ['../source/include/pibus_multi_timer.h',],
+	implementation_files = ['../source/src/pibus_multi_timer.cpp',],
+	uses = [
+    Uses('caba:pibus_mnemonics'),
+    Uses('caba:pibus_segment_table'),
+		],
+)
+

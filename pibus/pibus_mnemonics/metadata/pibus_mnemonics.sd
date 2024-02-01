@@ -1,0 +1,10 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_mnemonics',
+	header_files = ['../source/include/pibus_mnemonics.h',],
+)
+

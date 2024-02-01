@@ -1,0 +1,16 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_simple_master',
+	classname = 'soclib::caba::PibusSimpleMaster',
+	header_files = ['../source/include/pibus_simple_master.h',],
+	implementation_files = ['../source/src/pibus_simple_master.cpp',],
+	uses = [
+    		Uses('caba:pibus_mnemonics'),
+    		Uses('caba:pibus_segment_table'),
+		],
+)
+

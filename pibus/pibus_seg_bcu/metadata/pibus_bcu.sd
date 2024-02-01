@@ -1,0 +1,16 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_seg_bcu',
+	classname = 'soclib::caba::PibusSegBcu',
+	header_files = ['../source/include/pibus_seg_bcu.h',],
+	implementation_files = ['../source/src/pibus_seg_bcu.cpp',],
+	uses = [
+		Uses('caba:pibus_mnemonics'),
+		Uses('caba:pibus_segment_table'),
+		],
+)
+

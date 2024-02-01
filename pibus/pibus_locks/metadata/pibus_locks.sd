@@ -1,0 +1,16 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_locks',
+	classname = 'soclib::caba::',
+	header_files = ['../source/include/pibus_locks.h',],
+	implementation_files = ['../source/src/pibus_locks.cpp',],
+	uses = [
+    Uses('caba:pibus_mnemonics'),
+    Uses('caba:pibus_segment_table'),
+		],
+)
+

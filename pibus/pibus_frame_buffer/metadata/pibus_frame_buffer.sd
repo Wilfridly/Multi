@@ -1,0 +1,17 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_frame_buffer',
+	classname = 'soclib::caba::PibusFrameBuffer',
+	header_files = ['../source/include/pibus_frame_buffer.h',],
+	implementation_files = ['../source/src/pibus_frame_buffer.cpp',],
+	uses = [
+    		Uses('caba:pibus_mnemonics'),
+    		Uses('caba:pibus_segment_table'),
+    		Uses('common:fb_controller'),
+		],
+)
+

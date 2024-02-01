@@ -1,0 +1,11 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_segment_table',
+	classname = 'soclib::caba::PibusSegmentTable',
+	header_files = ['../source/include/pibus_segment_table.h',],
+)
+

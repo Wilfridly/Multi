@@ -1,0 +1,16 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_dma',
+	classname = 'soclib::caba::PibusDma',
+	header_files = ['../source/include/pibus_dma.h',],
+	implementation_files = ['../source/src/pibus_dma.cpp',],
+	uses = [
+                Uses('caba:pibus_mnemonics'),
+                Uses('caba:pibus_segment_table'),
+		],
+)
+

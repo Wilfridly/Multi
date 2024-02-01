@@ -1,0 +1,16 @@
+
+# -*- python -*-
+
+__id__ = "$Id$"
+__version__ = "$Revision$"
+
+Module('caba:pibus_multi_tty',
+	classname = 'soclib::caba::PibusMultiTty',
+	header_files = ['../source/include/pibus_multi_tty.h',],
+	implementation_files = ['../source/src/pibus_multi_tty.cpp',],
+	uses = [
+    		Uses('caba:pibus_mnemonics'),
+    		Uses('caba:pibus_segment_table'),
+		],
+)
+
