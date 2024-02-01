@@ -113,6 +113,8 @@ int _main (int argc, char *argv[])
  
 // TO BE COMPLETED : segment associated to the TTY
   segtable.addSegment("seg_tty", SEG_TTY_BASE, 0x00000010, 1, false);
+
+
 /////////////////////////////////////////////////////////
 //	INSTANCIATED  COMPONENTS
 /////////////////////////////////////////////////////////
@@ -120,8 +122,8 @@ int _main (int argc, char *argv[])
   Loader			loader	("string_file@0x10000000:D");
 
   PibusSegBcu			bcu	("bcu", segtable, 1 , 2, 100);
-  PibusSimpleMaster		master	("master", SEG_RAM_BASE, SEG_TTY_BASE); //TO BE COMPLETED
-  PibusSimpleRam		ram	("ram"  , 0, segtable, ram_latency, loader); //TO BE COMPLETED
+  PibusSimpleMaster		master	("master", SEG_RAM_BASE, SEG_TTY_BASE); //complété
+  PibusSimpleRam		ram	("ram"  , 0, segtable, ram_latency, loader); //complété
   PibusMultiTty  		tty 	("tty"  ,  1, segtable, 1);
 
   std::cout << std::endl;
@@ -130,29 +132,40 @@ int _main (int argc, char *argv[])
 //	Net-List
 //////////////////////////////////////////////////////////
  
-  bcu.p_ck 			(signal_ck);
+  bcu.p_ck 			    (signal_ck);
   bcu.p_resetn			(signal_resetn);
   bcu.p_req[0]			(signal_req_master);
   bcu.p_gnt[0]			(signal_gnt_master);
   bcu.p_sel[0]			(signal_sel_ram);
   bcu.p_sel[1]			(signal_sel_tty);
-  bcu.p_a 			(signal_pi_a);
-  bcu.p_lock			(signal_pi_lock);
-  bcu.p_ack			(signal_pi_ack);
-  bcu.p_tout			(signal_pi_tout);
+  bcu.p_a 			    (signal_pi_a);
+  bcu.p_lock			  (signal_pi_lock);
+  bcu.p_ack			    (signal_pi_ack);
+  bcu.p_tout			  (signal_pi_tout);
   bcu.p_avalid			(signal_pi_avalid);
   
-  tty.p_ck			(signal_ck);
+  tty.p_ck			    (signal_ck);
   tty.p_resetn			(signal_resetn);
-  tty.p_sel 			(signal_sel_tty);
-  tty.p_a			(signal_pi_a);
-  tty.p_read			(signal_pi_read);
-  tty.p_opc			(signal_pi_opc);
-  tty.p_ack			(signal_pi_ack);
-  tty.p_d			(signal_pi_d);
-  tty.p_tout			(signal_pi_tout);
-  tty.p_irq_put[0]		(signal_irq);
-  tty.p_irq_get[0]		(signal_irq);
+  tty.p_sel 			  (signal_sel_tty);
+  tty.p_a			      (signal_pi_a);
+  tty.p_read			  (signal_pi_read);
+  tty.p_opc			    (signal_pi_opc);
+  tty.p_ack			    (signal_pi_ack);
+  tty.p_d			      (signal_pi_d);
+  tty.p_tout			  (signal_pi_tout);
+  tty.p_irq_put[0]	(signal_irq);
+  tty.p_irq_get[0]	(signal_irq);
+
+  ram.p_ck          (signal_ck);
+  ram.p_resetn      (signal_resetn);
+  ram.p_sel         (signal_sel_ram);
+  ram.p_a           (signal_pi_a);
+  ram.p_read        (signal_pi_read);
+  ram.p_opc         (signal_pi_opc);
+  ram.p_ack         (signal_pi_ack);
+  ram.p_d           (signal_pi_d);
+  ram.p_tout        (signal_pi_tout);
+
   
 TO BE COMPLETED : connect the ram (PibusSimpleRam) & master (PibusSimpleMaster) components
   
