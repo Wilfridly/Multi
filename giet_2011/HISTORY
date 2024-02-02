@@ -1,0 +1,62 @@
+    * 15/09/2009:
+        The GIET entry point has been modified to comply with the MIPS32
+        specification : 0x80000180
+
+    * 5/10/2009:
+        The syscall handler has been modified to comply with the MIPS32
+        specification : the value stored in EPC register is the syscall
+        instruction address => it must be incremented by 4 to obtain the return
+        address.
+
+    * 15/10/2009:
+        The Interrupt handler has been modified to comply with the VCI_ICU
+        specification : The IRQ index is obtained by a read to
+        (icu_base_address + 16).
+
+    * 26/10/2009:
+        The interrupt handler has been modified to support multi-processors
+        architectures with one ICU per processor.  Finally, the mfc0
+        instruction uses now the select parameter to comply with the MIPS32
+        specification when accessing the processor_id (mtfc0 $x, $15, 1)
+
+    * 08/11/2009:
+        The syscall handler has been extended to support 32 values for the
+        syscall index, and to enable interrupts when processing a system call.
+        Five new syscalls have been introduced to access the frame buffer Three
+        new syscalls have been introduced to access the block device The two
+        syscalls associated to the DMA have been removed.
+
+    * 18/11/2009:
+        The syscall handler has been modified to save the SR in the stack
+        before enabling interrupts.
+
+    * 15/03/2010:
+        Replace the itoa_print assembler function by the itoa_hex() function
+        defined in the syscalls.c file.
+
+    * 10/04/2010:
+        Modify the interrupt handler to use the new ICU component supporting up
+        to 8 output IRQs for 8 processors.  The active IRQ index is obtained as
+        ICU[32*PROC_ID+16].
+
+    * 12/09/2010:
+        The ctx_switch function has been included in giet.s to simplify the
+        compilation process.
+
+    * 25/09/2010:
+        Add '.end' directive to end the _giet function and modify the 'sharp'
+        comment character into the regular "slash asterix ... asterix slash"
+        comment syntax
+
+    * 27/09/2010:
+        Respect stack convention with 4 minimum slots before calling C
+        functions, for asm code
+
+    * 28/09/2010:
+        Save all the non-persistant registers in the int_handler.
+
+    * 11/08/2011:
+        Rewrite the giet following 3 major axes:
+         - full separation between system code and applicative code
+         - switch the most asm code into C code
+         - restructuration and cleanup
