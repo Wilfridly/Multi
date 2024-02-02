@@ -1,0 +1,12 @@
+
+********************************************************
+******        tp1_multi                           ******
+********************************************************
+
+   Arguments on the command line are (key,value) couples.
+   The order is not important.
+   Accepted arguments are :
+
+   -NCYCLES number_of_simulated_cycles
+   -TRACE trace_start_cycle
+   -LATENCY ram_latency_number_of_cycles

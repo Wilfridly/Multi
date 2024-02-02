@@ -166,6 +166,18 @@ int _main (int argc, char *argv[])
   ram.p_d           (signal_pi_d);
   ram.p_tout        (signal_pi_tout);
 
+  master.p_ck       (signal_ck);
+  master.p_resetn   (signal_resetn);
+  master.p_gnt      (signal_gnt_master);
+  master.p_req      (signal_req_master);
+	master.p_a        (signal_pi_a);
+	master.p_opc      (signal_pi_opc);
+  master.p_read     (signal_pi_read);
+  master.p_lock     (signal_pi_lock);
+	master.p_d        (signal_pi_d);
+  master.p_ack      (signal_pi_ack);
+  master.p_tout     (signal_pi_tout);
+
   
 // TO BE COMPLETED : connect the ram (PibusSimpleRam) & master (PibusSimpleMaster) components
   
