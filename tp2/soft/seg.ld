@@ -10,17 +10,17 @@ The peripherals base addresses are referenced by the
 software drivers and must be defined, even if these
 peripherals are not present in the architecture */
 
-seg_reset_base  = TO BE COMPLETED;
+seg_reset_base  = 0xBFC00000;        //TO BE COMPLETED
 
-seg_kcode_base  = TO BE COMPLETED;
-seg_kunc_base   = TO BE COMPLETED;
-seg_kdata_base  = TO BE COMPLETED;
+seg_kcode_base  = 0x80000000;        //TO BE COMPLETED
+seg_kunc_base   = 0x82000000;        //TO BE COMPLETED
+seg_kdata_base  = 0x81000000;        //TO BE COMPLETED
 
-seg_code_base   = TO BE COMPLETED;
-seg_data_base   = TO BE COMPLETED;
-seg_stack_base  = TO BE COMPLETED;
+seg_code_base   = 0x01000000;        //TO BE COMPLETED        
+seg_data_base   = 0x00400000;        //TO BE COMPLETED
+seg_stack_base  = 0x02000000;        //TO BE COMPLETED
 
-seg_tty_base    = TO BE COMPLETED;
+seg_tty_base    = 0x90000000;        //TO BE COMPLETED
 seg_timer_base  = 0x91000000;
 seg_ioc_base    = 0x92000000;
 seg_dma_base    = 0x93000000;
