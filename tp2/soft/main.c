@@ -7,7 +7,8 @@ __attribute__((constructor)) void main()
 
 	while(1) 
         {
-            TO BE COMPLETED
+            tty_puts(s);
+            char c = tty_getc();
 	}
 
 } // end main
