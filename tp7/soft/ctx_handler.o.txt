@@ -1,0 +1,131 @@
+
+ctx_handler.o:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+00000000 <_ctx_switch>:
+   0:	27bdffd0 	addiu	sp,sp,-48
+   4:	afbf002c 	sw	ra,44(sp)
+   8:	afbe0028 	sw	s8,40(sp)
+   c:	03a0f025 	move	s8,sp
+  10:	0c000000 	jal	0 <_ctx_switch>
+  14:	00000000 	nop
+  18:	afc20010 	sw	v0,16(s8)
+  1c:	3c020000 	lui	v0,0x0
+  20:	24430000 	addiu	v1,v0,0
+  24:	8fc20010 	lw	v0,16(s8)
+  28:	00621021 	addu	v0,v1,v0
+  2c:	90420000 	lbu	v0,0(v0)
+  30:	2c420002 	sltiu	v0,v0,2
+  34:	14400030 	bnez	v0,f8 <_ctx_switch+0xf8>
+  38:	00000000 	nop
+  3c:	3c020000 	lui	v0,0x0
+  40:	24430000 	addiu	v1,v0,0
+  44:	8fc20010 	lw	v0,16(s8)
+  48:	00621021 	addu	v0,v1,v0
+  4c:	90420000 	lbu	v0,0(v0)
+  50:	a3c20014 	sb	v0,20(s8)
+  54:	93c30014 	lbu	v1,20(s8)
+  58:	8fc20010 	lw	v0,16(s8)
+  5c:	00621021 	addu	v0,v1,v0
+  60:	00021180 	sll	v0,v0,0x6
+  64:	00021880 	sll	v1,v0,0x2
+  68:	3c020000 	lui	v0,0x0
+  6c:	24420000 	addiu	v0,v0,0
+  70:	00621021 	addu	v0,v1,v0
+  74:	afc20018 	sw	v0,24(s8)
+  78:	93c20014 	lbu	v0,20(s8)
+  7c:	24420001 	addiu	v0,v0,1
+  80:	3c030000 	lui	v1,0x0
+  84:	24640000 	addiu	a0,v1,0
+  88:	8fc30010 	lw	v1,16(s8)
+  8c:	00831821 	addu	v1,a0,v1
+  90:	90630000 	lbu	v1,0(v1)
+  94:	0043001a 	div	zero,v0,v1
+  98:	006001f4 	teq	v1,zero,0x7
+  9c:	00001010 	mfhi	v0
+  a0:	a3c2001c 	sb	v0,28(s8)
+  a4:	93c3001c 	lbu	v1,28(s8)
+  a8:	8fc20010 	lw	v0,16(s8)
+  ac:	00621021 	addu	v0,v1,v0
+  b0:	00021180 	sll	v0,v0,0x6
+  b4:	00021880 	sll	v1,v0,0x2
+  b8:	3c020000 	lui	v0,0x0
+  bc:	24420000 	addiu	v0,v0,0
+  c0:	00621021 	addu	v0,v1,v0
+  c4:	afc20020 	sw	v0,32(s8)
+  c8:	3c020000 	lui	v0,0x0
+  cc:	24430000 	addiu	v1,v0,0
+  d0:	8fc20010 	lw	v0,16(s8)
+  d4:	00621021 	addu	v0,v1,v0
+  d8:	93c3001c 	lbu	v1,28(s8)
+  dc:	a0430000 	sb	v1,0(v0)
+  e0:	8fc50020 	lw	a1,32(s8)
+  e4:	8fc40018 	lw	a0,24(s8)
+  e8:	0c000000 	jal	0 <_ctx_switch>
+  ec:	00000000 	nop
+  f0:	10000002 	b	fc <_ctx_switch+0xfc>
+  f4:	00000000 	nop
+  f8:	00000000 	nop
+  fc:	03c0e825 	move	sp,s8
+ 100:	8fbf002c 	lw	ra,44(sp)
+ 104:	8fbe0028 	lw	s8,40(sp)
+ 108:	27bd0030 	addiu	sp,sp,48
+ 10c:	03e00008 	jr	ra
+ 110:	00000000 	nop
+
+Disassembly of section .reginfo:
+
+00000000 <.reginfo>:
+   0:	e000003c 	sc	zero,60(zero)
+	...
+
+Disassembly of section .MIPS.abiflags:
+
+00000000 <.MIPS.abiflags>:
+   0:	01200000 	0x1200000
+   4:	01000101 	0x1000101
+	...
+  10:	00000001 	movf	zero,zero,$fcc0
+  14:	00000000 	nop
+
+Disassembly of section .pdr:
+
+00000000 <.pdr>:
+   0:	00000000 	nop
+   4:	c0000000 	ll	zero,0(zero)
+   8:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  14:	00000030 	tge	zero,zero
+  18:	0000001e 	0x1e
+  1c:	0000001f 	0x1f
+
+Disassembly of section .sbss:
+
+00000000 <_current_task_array>:
+	...
+
+Disassembly of section .sdata:
+
+00000000 <_task_number_array>:
+   0:	Address 0x0000000000000000 is out of bounds.
+
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	c0	0x1434700
+   4:	4728203a 	c1	0x128203a
+   8:	2029554e 	addi	t1,at,21838
+   c:	2e322e38 	sltiu	s2,s1,11832
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .gnu.attributes:
+
+00000000 <.gnu.attributes>:
+   0:	00000f41 	0xf41
+   4:	756e6700 	jalx	5b99c00 <_ctx_switch+0x5b99c00>
+   8:	00070100 	sll	zero,a3,0x4
+   c:	01040000 	0x1040000
