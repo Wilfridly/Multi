@@ -1,0 +1,43 @@
+
+reset.o:     file format elf32-littlemips
+
+
+Disassembly of section .reginfo:
+
+00000000 <.reginfo>:
+   0:	3c000000 	lui	zero,0x0
+	...
+
+Disassembly of section .MIPS.abiflags:
+
+00000000 <.MIPS.abiflags>:
+   0:	01200000 	0x1200000
+   4:	01000101 	0x1000101
+	...
+  10:	00000001 	movf	zero,zero,$fcc0
+  14:	00000000 	nop
+
+Disassembly of section .reset:
+
+00000000 <reset>:
+   0:	401b7801 	mfc0	k1,$15,1
+   4:	277b0001 	addiu	k1,k1,1
+   8:	001bdc00 	sll	k1,k1,0x10
+   c:	3c1d0000 	lui	sp,0x0
+  10:	27bd0000 	addiu	sp,sp,0
+  14:	03bbe821 	addu	sp,sp,k1
+  18:	341aff13 	li	k0,0xff13
+  1c:	409a6000 	mtc0	k0,c0_status
+  20:	3c1a0000 	lui	k0,0x0
+  24:	275a0000 	addiu	k0,k0,0
+  28:	8f5a0000 	lw	k0,0(k0)
+  2c:	409a7000 	mtc0	k0,c0_epc
+  30:	42000018 	eret
+
+Disassembly of section .gnu.attributes:
+
+00000000 <.gnu.attributes>:
+   0:	00000f41 	0xf41
+   4:	756e6700 	jalx	5b99c00 <reset+0x5b99c00>
+   8:	00070100 	sll	zero,a3,0x4
+   c:	01040000 	0x1040000

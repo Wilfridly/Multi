@@ -1,0 +1,87 @@
+/**********************************************************
+	File : ldscript 
+	Author : Alain Greiner
+	Date : January 2011
+**********************************************************/
+
+/* definition of the base address for all segments 
+The peripherals base addresses are referenced by the
+software drivers and must be defined, even if these
+peripherals are not present in the architecture */
+
+seg_reset_base  = 0xBFC00000;
+
+seg_kcode_base  = 0x80000000;
+seg_kunc_base   = 0x81000000;
+seg_kdata_base  = 0x82000000;
+
+seg_code_base   = 0x00400000;
+seg_data_base   = 0x01000000;
+seg_stack_base  = 0x02000000;
+
+seg_icu_base    = 0x86000000;
+seg_tty_base    = 0x87000000;
+seg_timer_base  = 0x88000000;
+seg_ioc_base    = 0x89000000;
+seg_dma_base    = 0x8A000000;
+seg_locks_base  = 0x8B000000;
+seg_gcd_base    = 0x8C000000;
+seg_fb_base     = 0x8D000000;
+
+segment_increment = 0x10;
+
+/* definition of various parameters.
+These variables are referenced in the drivers.c file,
+and must be defined, even if the corresponding
+peripherals are not present in the architecture */
+
+NB_PROCS	= 1;	/* number of processors */
+NB_TIMERS	= 0;    /* total number of timers */
+NB_LOCKS	= 0;	/* total number of locks */
+NB_TASKS        = 1;    /* Maximum number of tasks per processor */
+
+/* Grouping sections into segments */
+
+SECTIONS
+{
+   . = seg_kcode_base;
+   seg_kcode : {
+      *(.giet)
+      *(.switch)
+      *(.drivers)
+      *(.isr)
+   } 
+   . = seg_kdata_base;
+   seg_kdata : {
+      *(.ksave)
+   } 
+   . = seg_kunc_base;
+   seg_kunc : {
+      *(.unckdata)
+   } 
+   . = seg_code_base;
+   seg_code : {
+      *(.mycode)
+      *(.text)
+   } 
+   . = seg_reset_base;
+   seg_reset : {
+      *(.reset)
+   } 
+   . = seg_data_base;
+   seg_data : {
+      *(.mydata)
+      *(.rodata)
+      . = ALIGN(4);
+      *(.rodata.*)
+      . = ALIGN(4);
+      *(.data)
+      . = ALIGN(4);
+      *(.sdata)
+      . = ALIGN(4);
+      *(.bss)
+      *(COMMON)
+      *(.sbss)
+   } 
+}
+

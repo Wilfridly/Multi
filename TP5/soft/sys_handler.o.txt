@@ -1,0 +1,156 @@
+
+sys_handler.o:     file format elf32-littlemips
+
+
+Disassembly of section .text:
+
+00000000 <_get_epc>:
+   0:	27bdfff0 	addiu	sp,sp,-16
+   4:	afbe000c 	sw	s8,12(sp)
+   8:	03a0f025 	move	s8,sp
+   c:	40027000 	mfc0	v0,c0_epc
+  10:	afc20000 	sw	v0,0(s8)
+  14:	8fc20000 	lw	v0,0(s8)
+  18:	03c0e825 	move	sp,s8
+  1c:	8fbe000c 	lw	s8,12(sp)
+  20:	27bd0010 	addiu	sp,sp,16
+  24:	03e00008 	jr	ra
+  28:	00000000 	nop
+
+0000002c <_sys_ukn>:
+  2c:	27bdffe0 	addiu	sp,sp,-32
+  30:	afbf001c 	sw	ra,28(sp)
+  34:	afbe0018 	sw	s8,24(sp)
+  38:	03a0f025 	move	s8,sp
+  3c:	3c020000 	lui	v0,0x0
+  40:	24440000 	addiu	a0,v0,0
+  44:	0c000000 	jal	0 <_get_epc>
+  48:	00000000 	nop
+  4c:	3c020000 	lui	v0,0x0
+  50:	24440024 	addiu	a0,v0,36
+  54:	0c000000 	jal	0 <_get_epc>
+  58:	00000000 	nop
+  5c:	3c020000 	lui	v0,0x0
+  60:	2442002c 	addiu	v0,v0,44
+  64:	afc20010 	sw	v0,16(s8)
+  68:	0c000000 	jal	0 <_get_epc>
+  6c:	00000000 	nop
+  70:	afc20014 	sw	v0,20(s8)
+  74:	8fc20010 	lw	v0,16(s8)
+  78:	24420002 	addiu	v0,v0,2
+  7c:	00402825 	move	a1,v0
+  80:	8fc40014 	lw	a0,20(s8)
+  84:	0c000000 	jal	0 <_get_epc>
+  88:	00000000 	nop
+  8c:	8fc40010 	lw	a0,16(s8)
+  90:	0c000000 	jal	0 <_get_epc>
+  94:	00000000 	nop
+  98:	0c000000 	jal	0 <_get_epc>
+  9c:	00000000 	nop
+
+000000a0 <_procnumber>:
+  a0:	27bdfff8 	addiu	sp,sp,-8
+  a4:	afbe0004 	sw	s8,4(sp)
+  a8:	03a0f025 	move	s8,sp
+  ac:	24020008 	li	v0,8
+  b0:	03c0e825 	move	sp,s8
+  b4:	8fbe0004 	lw	s8,4(sp)
+  b8:	27bd0008 	addiu	sp,sp,8
+  bc:	03e00008 	jr	ra
+  c0:	00000000 	nop
+
+Disassembly of section .data:
+
+00000000 <_syscall_vector>:
+	...
+  20:	0000002c 	0x2c
+  24:	0000002c 	0x2c
+  28:	00000000 	nop
+  2c:	0000002c 	0x2c
+  30:	0000002c 	0x2c
+	...
+  3c:	000000a0 	0xa0
+	...
+  68:	0000002c 	0x2c
+  6c:	0000002c 	0x2c
+  70:	0000002c 	0x2c
+  74:	0000002c 	0x2c
+  78:	0000002c 	0x2c
+  7c:	0000002c 	0x2c
+
+Disassembly of section .reginfo:
+
+00000000 <.reginfo>:
+   0:	e0000034 	sc	zero,52(zero)
+	...
+
+Disassembly of section .MIPS.abiflags:
+
+00000000 <.MIPS.abiflags>:
+   0:	01200000 	0x1200000
+   4:	01000101 	0x1000101
+	...
+  10:	00000001 	movf	zero,zero,$fcc0
+  14:	00000000 	nop
+
+Disassembly of section .pdr:
+
+00000000 <.pdr>:
+   0:	00000000 	nop
+   4:	40000000 	mfc0	zero,c0_index
+   8:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  14:	00000010 	mfhi	zero
+  18:	0000001e 	0x1e
+  1c:	0000001f 	0x1f
+  20:	0000002c 	0x2c
+  24:	c0000000 	ll	zero,0(zero)
+  28:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  34:	00000020 	add	zero,zero,zero
+  38:	0000001e 	0x1e
+  3c:	0000001f 	0x1f
+  40:	000000a0 	0xa0
+  44:	40000000 	mfc0	zero,c0_index
+  48:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  54:	00000008 	jr	zero
+  58:	0000001e 	0x1e
+  5c:	0000001f 	0x1f
+
+Disassembly of section .rodata:
+
+00000000 <.rodata>:
+   0:	21210a0a 	addi	at,t1,2570
+   4:	6e552021 	0x6e552021
+   8:	69666564 	0x69666564
+   c:	2064656e 	addi	a0,v1,25966
+  10:	74737953 	jalx	1cde54c <_procnumber+0x1cde4ac>
+  14:	43206d65 	c0	0x1206d65
+  18:	206c6c61 	addi	t4,v1,27745
+  1c:	0a212121 	j	8848484 <_procnumber+0x88483e4>
+  20:	00000000 	nop
+  24:	4350450a 	c0	0x150450a
+  28:	00203d20 	0x203d20
+  2c:	30307830 	andi	s0,at,0x7830
+  30:	30303030 	andi	s0,at,0x3030
+  34:	Address 0x0000000000000034 is out of bounds.
+
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	c0	0x1434700
+   4:	4728203a 	c1	0x128203a
+   8:	2029554e 	addi	t1,at,21838
+   c:	2e322e38 	sltiu	s2,s1,11832
+  10:	Address 0x0000000000000010 is out of bounds.
+
+
+Disassembly of section .gnu.attributes:
+
+00000000 <.gnu.attributes>:
+   0:	00000f41 	0xf41
+   4:	756e6700 	jalx	5b99c00 <_procnumber+0x5b99b60>
+   8:	00070100 	sll	zero,a3,0x4
+   c:	01040000 	0x1040000
